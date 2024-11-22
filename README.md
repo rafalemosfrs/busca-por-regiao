@@ -4,35 +4,36 @@ Este é um projeto simples que permite ao usuário selecionar uma região, um es
 
 ## Funcionalidades
 
-- **Seleção de Região**: O usuário pode selecionar uma região do Brasil.
-- **Seleção de Estado**: Após escolher uma região, o usuário pode selecionar um estado da região.
-- **Visualização de Municípios**: Após selecionar um estado, a tabela exibirá os municípios desse estado.
-- **Resetar**: O botão "Resetar" limpa as seleções e a tabela de resultados, e recarrega a lista de regiões.
+- **Mapa Interativo**: O usuário pode clicar em um estado diretamente no mapa do Brasil para visualizar sua lista de municípios.
+- **Visualização de Municípios**: Após selecionar um estado, a tabela exibida listará os municípios relacionados.
+- **Resetar**: O botão "Resetar" limpa a seleção do estado e a tabela de resultados.
 
 ## Tecnologias Usadas
 
 - **HTML**: Estrutura básica da página.
 - **CSS**: Estilização moderna e responsiva com gradiente de fundo.
-- **JavaScript**: Interatividade, utilizando `fetch` para consumir a API do IBGE e manipulação do DOM para exibir os dados.
-- **API do IBGE**: A API é usada para obter os dados de regiões, estados e municípios diretamente do IBGE.
+- **JavaScript**: Interatividade e consumo da API do IBGE.
+- **Leaflet**: Biblioteca de mapas interativos para renderizar o mapa do Brasil.
+- **GeoJSON**: Dados geográficos utilizados para delinear os estados no mapa.
+- **API do IBGE**: Fornece dados detalhados de estados e municípios do Brasil.
 
 ## Como Usar
 
 1. **Clonar o Repositório**:  
-  Primeiro, clone o repositório para sua máquina local.
+  - Primeiro, clone o repositório para sua máquina local.
 
    ```bash
    git clone https://github.com/rafalemosfrs/busca-por-regiao.git
+```
 
 2. **Abrir no Navegador**:
-  Abra o arquivo index.html em um navegador para visualizar o projeto em funcionamento.
+  - Abra o arquivo index.html em um navegador para visualizar o projeto em funcionamento.
 
 3. **Interagir com a Página**:
 
-  ° Selecione uma região no primeiro dropdown.
-  ° Escolha um estado relacionado à região selecionada.
-  ° A tabela abaixo será preenchida com os municípios correspondentes.
-  ° Utilize o botão "Resetar" para limpar as seleções e resultados.
+  - Clique em um estado no mapa para visualizar seus municípios.
+  - A tabela abaixo será preenchida com os municípios correspondentes.
+  - Utilize o botão "Resetar" para limpar a seleção e os resultados.
 
 ## Estrutura do projeto
 
@@ -41,6 +42,8 @@ Este é um projeto simples que permite ao usuário selecionar uma região, um es
 |-- /assets
 |   |-- /images
 |   |   |-- iconmonstr-globe-8.svg       # Favicon da página
+|   |-- /json
+|   |   |-- brazil_geo.json              # Arquivo GeoJSON do mapa do Brasil
 |-- index.html                           # Arquivo HTML principal
 |-- style.css                            # Arquivo de estilo CSS
 |-- script.js                            # Arquivo de código JavaScript
@@ -55,32 +58,32 @@ Este é um projeto simples que permite ao usuário selecionar uma região, um es
 O arquivo `index.html` contém a estrutura básica do projeto, incluindo:
 
 - Um título centralizado.
-- Três elementos `<select>` para selecionar a região, estado e exibir a tabela de municípios.
-- Um botão "Resetar" para limpar os dados e reiniciar as seleções.
+- Um mapa interativo renderizado pela biblioteca Leaflet.
+- Uma tabela responsiva para exibir os municípios de um estado selecionado.
+- Um botão "Resetar" para limpar os dados e reiniciar a interação.
 
 ### CSS
 
 O arquivo `style.css` é responsável pela estilização da página. Algumas características incluem:
 
-- **Gradiente de fundo**: Para um visual mais moderno e suave.
-- **Estilização de selects e botões**: Melhorando a interação com os usuários.
-- **Tabelas**: Estilização da tabela de municípios com linhas alternadas e efeitos de hover.
+- Gradiente de fundo: Para um visual mais moderno e suave.
+- Estilização do mapa e da tabela: Melhorando a experiência do usuário.
 
 ### JavaScript
 
 O arquivo `script.js` faz uso de:
 
-- **API do IBGE**: Utiliza `fetch` para buscar os dados de regiões, estados e municípios.
-- **Eventos**:
-  - Quando uma região é selecionada, os estados daquela região são carregados.
-  - Quando um estado é selecionado, a lista de municípios daquele estado é carregada e exibida em uma tabela.
-  - O botão "Resetar" limpa as seleções e a tabela.
+- API do IBGE: Utiliza fetch para buscar os dados de estados e municípios.
+- Leaflet: Renderiza o mapa e adiciona interatividade aos estados.
+- GeoJSON: Utiliza dados geográficos para desenhar os limites dos estados.
+- Eventos:
+  - Quando um estado é clicado no mapa, a tabela é atualizada com os municípios correspondentes.
+  - O botão "Resetar" limpa a seleção e os resultados.
 
 #### Funções:
 
-- **`buscarRegioes`**: Carrega as regiões do Brasil.
-- **`buscarEstadosPorRegiao`**: Carrega os estados de uma região selecionada.
-- **`buscarMunicipios`**: Carrega os municípios de um estado selecionado.
+- **inicializarMapa**: Configura e renderiza o mapa do Brasil usando o arquivo GeoJSON.
+- **buscarMunicipios**: Busca e exibe os municípios de um estado selecionado.
 
 #### Eventos de interação:
 
@@ -88,8 +91,12 @@ O arquivo `script.js` faz uso de:
 
 ## Possíveis Melhorias
 
-- **Filtros adicionais**: Poderia ser implementado um sistema de busca por nome do município.
-- **Exibição de mais informações**: Mostrar mais dados sobre cada município, como população ou área.
-- **Armazenamento local**: Armazenar a seleção do usuário no navegador para que ele não precise refazer as escolhas ao recarregar a página.
+- **Filtros adicionais**: Permitir busca por nome do município diretamente.
+
+- **Mais dados sobre municípios**: Exibir informações como população ou área.
+
+- **Armazenamento local**: Salvar seleções do usuário para persistência ao recarregar a página.
+
+
 
 
