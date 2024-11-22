@@ -1,0 +1,142 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to left, #2d3436, #6c7d7b);
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #2d3436;
+  font-size: 2.5rem;
+  margin-top: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+select {
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+select:focus {
+  border-color: #2d3436;
+  outline: none;
+  box-shadow: 0 0 8px rgba(45, 52, 54, 0.2);
+}
+
+button {
+  padding: 12px 193px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #2d3436;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #34495e;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+th {
+  background-color: #2d3436;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .container {
+      padding: 20px;
+  }
+
+  select {
+      max-width: 100%;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  button {
+      padding: 10px 20px;
+      font-size: 1rem;
+  }
+}
+
+#map {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.leaflet-control {
+  background-color: #2d3436;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-control:hover {
+  background-color: #34495e;
+}
+
+.hover-state {
+  fill: #34495e;
+  stroke: #fff;
+  stroke-width: 2;
+}
